@@ -1,0 +1,13 @@
+{
+  "name": "submarin-converter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Submarinonline/submarin-converter.git",
+  "author": "hakunagi <hakunagi.rei@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cjp": "^1.2.3",
+    "genhera": "^1.1.0",
+    "nomlish": "^0.1.0"
+  }
+}

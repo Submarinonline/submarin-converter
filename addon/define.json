@@ -1,0 +1,6 @@
+{
+  "gsc": {
+    "type": "image",
+    "module": "./addon/convertGsc"
+  }
+}
