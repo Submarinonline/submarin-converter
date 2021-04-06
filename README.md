@@ -36,6 +36,18 @@ console.log(result2) //こゐ日本语ゎ怪ﾚㄑなっだ后〆ｿﾍぅ风に
 convert(["cmd1","cmd2","cmd3"…],"String",([cmd1option,cmd2option,cmd3option…]))
 ```
 
+## Addon
+addonフォルダにNodeモジュールファイルを入れdefine.jsonを編集することで簡単に変換エンジンを追加することが出来ます。
+
+例として5000choyen-api-node.jsを同梱してあります。
+### define.jsonの形式
+```
+"コマンドの名前(半角3文字推奨)": {
+    "type": "変換先(文字:text,画像:imageなど)",
+    "module": "モジュールの相対パス"
+  }
+```
+
 ## Author
 * [hakunagi](https://github.com/hakunagi)
 

@@ -40,7 +40,7 @@ module.exports = async (IDs = [], text = "", options = []) => {
   for (ID of IDs) {
     if (!Object.keys(converter).includes(ID))
       throw new Error(`"${ID}"は存在しません。`)
-    tempText = await converter[ID].convert(tempText, (options[i] || null))
+    tempText = await converter[ID].convert(tempText, (options[i] || undefined))
     i++
   }
   return tempText

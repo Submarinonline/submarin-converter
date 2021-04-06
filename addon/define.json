@@ -1,6 +1,6 @@
 {
   "gsc": {
     "type": "image",
-    "module": "./addon/convertGsc"
+    "module": "./addon/5000choyen-api-node.min"
   }
 }

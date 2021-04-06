@@ -1,9 +1,8 @@
-module.exports = function (top = "", option = []) {
-  const url = {
-    origin: "https://gsapi.cyberrex.ml/image",
-    dyama: "https://api.dyama.net/5k",
-    steve: "https://gosenchouen.ml/image"
-  }
+const host = {
+  origin: "https://gsapi.cyberrex.ml/image"
+}
+
+module.exports = async (top = "", option = {}) => {
   let word = [(top || "5000兆円"), "欲しい！"]
   const topSplit = top.split(/\r?\n/g)
   if (topSplit.length >= 2) {
@@ -25,25 +24,17 @@ module.exports = function (top = "", option = []) {
       .replace(/\[/g, "［")
       .replace(/\]/g, "］")
   })
+  let optionText = "",
+    api = host.origin,
+    single = 0
+  if (option.rainbow) optionText += "&rainbow=true"
+  if (option.hoshii) optionText += "&hoshii=true"
+  if (option.singletop ^ option.singlebottom) {
+    if (option.singletop) single = 1
+    if (option.singlebottom) single = 2
+  }
 
-  let optionText = ""
-
-  let api = url.origin
-
-  let single = 0
-
-  option.forEach(val => {
-    if (val == "r") optionText += "&rainbow=true"
-    if (val == "h") optionText += "&hoshii=true"
-
-    if (val == "t") single = 1
-    if (val == "b") single = 2
-
-    if (val == "d") api = url.dyama
-    if (val == "s") api = url.steve
-    if (val == "o") api = url.origin
-  })
-  if (option.includes("o")) api = url.origin
+  if (option.originhost) api = host.origin
 
   if (single == 1) {
     return `${api}?top=${encodeURI(word[0])}${optionText}&single=true`
