@@ -16,22 +16,32 @@ const mainModule = {
 
 Object.keys(addon).forEach(key => {
   if (Object.keys(mainModule).includes(key))
-    throw new Error(`The converter "${key}" is duplicated in mainModule and addon.`)
+    throw new Error(`"${key}"がメインモジュールと重複しています。addon/define.jsonを編集して下さい。`)
 })
 
 const converter = (function () {
   let temp = {}
   settings.priority.forEach(val => {
-    if (Object.keys(mainModule).includes(val)) temp[val] = mainModule[val]
-    if (Object.keys(addon).includes(val)) temp[val] = new convertModule(addon[val].type, require(addon[val].module), addon[val].role)
+    if (Object.keys(mainModule).includes(val))
+      temp[val] = mainModule[val]
+    else if (Object.keys(addon).includes(val))
+      temp[val] = new convertModule(addon[val].type, require(addon[val].module), addon[val].role)
+    else
+      throw new Error(`"${val}"は存在しません。settings.jsonのpriorityを編集して下さい。`)
   })
   return temp
 }())
 
-module.exports = async (ID = "", text = "", option = {}) => {
-  if (ID == "") throw new Error(`ID is empty.`)
-  if (text == "") throw new Error(`Text is empty.`)
-  if (!Object.keys(converter).includes(ID))
-    throw new Error(`The converter "${ID}" does not exist.`)
-  return await converter[ID].convert(text, option)
+module.exports = async (IDs = [], text = "", options = []) => {
+  if (IDs.length == 0) throw new Error(`IDが入力されていません。`)
+  if (text == "") throw new Error(`textが入力されていません。`)
+  let temp = ""
+  i = 0
+  for (ID of IDs) {
+    if (!Object.keys(converter).includes(ID))
+      throw new Error(`"${ID}"は存在しません。`)
+    tempText = await converter[ID].convert((tempText || text), (options[i] || null))
+    i++
+  }
+  return temp
 }
