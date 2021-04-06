@@ -35,13 +35,13 @@ const converter = (function () {
 module.exports = async (IDs = [], text = "", options = []) => {
   if (IDs.length == 0) throw new Error(`IDが入力されていません。`)
   if (text == "") throw new Error(`textが入力されていません。`)
-  let temp = ""
+  let tempText = text
   i = 0
   for (ID of IDs) {
     if (!Object.keys(converter).includes(ID))
       throw new Error(`"${ID}"は存在しません。`)
-    tempText = await converter[ID].convert((tempText || text), (options[i] || null))
+    tempText = await converter[ID].convert(tempText, (options[i] || null))
     i++
   }
-  return temp
+  return tempText
 }
