@@ -6,6 +6,7 @@
   "author": "hakunagi <hakunagi.rei@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "app-root-path": "^3.0.0",
     "cjp": "^1.2.3",
     "genhera": "^1.1.0",
     "nomlish": "^0.1.0"

@@ -1,5 +1,6 @@
 const settings = require("./settings.json"),
-  addon = require("./addon/define.json")
+  root = require("app-root-path"),
+  addon = require(root + "/submarin-converter-addons/define.json")
 
 class convertModule {
   constructor(type, Module) {

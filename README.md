@@ -37,9 +37,9 @@ convert(["cmd1","cmd2","cmd3"…],"String",([cmd1option,cmd2option,cmd3option…
 ```
 
 ## Addon
-addonフォルダにNodeモジュールファイルを入れdefine.jsonを編集することで簡単に変換エンジンを追加することが出来ます。
+submarin-converterを使用するプロジェクトのルートディレクトリにsubmarin-converter-addonsフォルダを配置、その中にNodeモジュールファイルを入れdefine.jsonを編集することで簡単に変換エンジンを追加することが出来ます。
 
-例として5000choyen-api-node.jsを同梱してあります。
+例として[submarin-converter-addons-example](https://github.com/Submarinonline/submarin-converter-addons-example)を用意しています。
 ### define.jsonの形式
 ```
 "コマンドの名前(半角3文字推奨)": {
