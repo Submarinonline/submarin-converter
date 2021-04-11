@@ -1,9 +1,9 @@
 # submarin-converter
-[submarin-convert-bot](https://github.com/Submarinonline/submarin-convert-bot)
+submarin-convert-bot
 に使われていた変換エンジンをnpmモジュールとして動くようにしたもの。
 
 バージョン4以降の
-[submarin-convert-bot](https://github.com/Submarinonline/submarin-convert-bot)
+submarin-convert-bot
 の変換エンジンはこれを使用します。
 
 ## Requirement
