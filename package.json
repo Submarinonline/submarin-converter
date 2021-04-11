@@ -1,6 +1,6 @@
 {
   "name": "submarin-converter",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "main": "index.min.js",
   "repository": "https://github.com/Submarinonline/submarin-converter.git",
   "author": "hakunagi <hakunagi.rei@gmail.com>",
