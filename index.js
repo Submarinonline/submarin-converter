@@ -1,6 +1,6 @@
-const settings = require("./settings.json"),
-  root = require("app-root-path"),
-  addon = require(root + "/submarin-converter-addons/define.json")
+const root = require("app-root-path"),
+  settings = require(root + "/submarin-converter/settings.json"),
+  addon = require(root + "/submarin-converter/addons/define.json")
 
 class convertModule {
   constructor(type, Module) {
@@ -26,7 +26,7 @@ const converter = (function () {
     if (Object.keys(mainModule).includes(val))
       temp[val] = mainModule[val]
     else if (Object.keys(addon).includes(val))
-      temp[val] = new convertModule(addon[val].type, require(`${root}/submarin-converter-addons/${addon[val].module}`), addon[val].role)
+      temp[val] = new convertModule(addon[val].type, require(`${root}/submarin-converter/addons/${addon[val].module}`), addon[val].role)
     else
       throw new Error(`"${val}"は存在しません。settings.jsonのpriorityを編集して下さい。`)
   })
