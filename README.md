@@ -37,15 +37,30 @@ convert(["cmd1","cmd2","cmd3"…],"String",([cmd1option,cmd2option,cmd3option…
 ```
 
 ## Addon
-submarin-converterを使用するプロジェクトのルートディレクトリにsubmarin-converter-addonsフォルダを配置、その中にNodeモジュールファイルを入れdefine.jsonを編集することで簡単に変換エンジンを追加することが出来ます。
+プロジェクトのルートディレクトリに`/submarin-converter`が存在しない場合、`/submarin-converter`とその内容が自動生成されます。
 
-例として[submarin-converter-addons-example](https://github.com/Submarinonline/submarin-converter-addons-example)を用意しています。
+`/submarin-converter/addons`にNodeモジュールファイルを入れ`define.json`を編集
+`/submarin-converter/settings.json`で変換の優先順位を設定することで簡単に変換エンジンを追加することが出来ます。
+
 ### define.jsonの形式
 ```
 "コマンドの名前(半角3文字推奨)": {
     "type": "変換先(文字:text,画像:imageなど)",
     "module": "モジュールのファイル名"
   }
+```
+### settings.jsonの形式
+```
+{
+  "priority": [
+    "nml",
+    "cjp",
+    "mhr",
+    "gsc"
+  ]
+}
+
+変換の優先度が昇順で並んでいます
 ```
 
 ## Author
