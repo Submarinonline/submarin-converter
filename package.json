@@ -1,6 +1,6 @@
 {
   "name": "submarin-converter",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "main": "index.min.js",
   "repository": "https://github.com/Submarinonline/submarin-converter.git",
   "author": "hakunagi <hakunagi.rei@gmail.com>",
@@ -8,6 +8,7 @@
   "dependencies": {
     "app-root-path": "^3.0.0",
     "cjp": "^1.2.3",
+    "fs-extra": "^9.1.0",
     "genhera": "^1.1.0",
     "nomlish": "^0.1.0"
   }

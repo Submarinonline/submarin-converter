@@ -1,0 +1,6 @@
+{
+  "gsc": {
+    "type": "image",
+    "module": "5000choyen-api-node.min"
+  }
+}

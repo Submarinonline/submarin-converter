@@ -1,5 +1,13 @@
 const root = require("app-root-path"),
-  settings = require(root + "/submarin-converter/settings.json"),
+  fs = require("fs-extra");
+
+if (!fs.existsSync(root + "/submarin-converter")) {
+  fs.mkdirSync(root + "/submarin-converter")
+  fs.copySync(__dirname + "/submarin-converter", root + "/submarin-converter")
+  console.log("submarin-converter:/submarin-converterを初期化しました。")
+}
+
+const settings = require(root + "/submarin-converter/settings.json"),
   addon = require(root + "/submarin-converter/addons/define.json")
 
 class convertModule {
