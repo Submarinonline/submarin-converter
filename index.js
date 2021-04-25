@@ -45,14 +45,16 @@ module.exports = async (IDs = [], text = "", options = [], ignoreType = "") => {
   if (IDs.length == 0) throw new Error(`IDが入力されていません。`)
   if (text == "") throw new Error(`textが入力されていません。`)
   let tempText = text
-  i = 0
+  let i = 0
+  console.log(IDs);
   for (ID of IDs) {
+    console.log(ID, tempText, i, (options[i] || undefined))
     if (!Object.keys(converter).includes(ID))
       throw new Error(`"${ID}"は存在しません。`)
     if (converter[ID].type != ignoreType)
       tempText = await converter[ID].convert(tempText, (options[i] || undefined))
-    if (converter[ID].type == "image") break
     i++
+    if (converter[ID].type == "image") break
   }
   return tempText
 }
