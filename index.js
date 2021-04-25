@@ -46,9 +46,7 @@ module.exports = async (IDs = [], text = "", options = [], ignoreType = "") => {
   if (text == "") throw new Error(`textが入力されていません。`)
   let tempText = text
   let i = 0
-  console.log(IDs);
   for (ID of IDs) {
-    console.log(ID, tempText, i, (options[i] || undefined))
     if (!Object.keys(converter).includes(ID))
       throw new Error(`"${ID}"は存在しません。`)
     if (converter[ID].type != ignoreType)
