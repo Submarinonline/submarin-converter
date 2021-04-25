@@ -41,7 +41,7 @@ const converter = (function () {
   return temp
 }())
 
-module.exports = async (IDs = [], text = "", options = []) => {
+module.exports = async (IDs = [], text = "", options = [], ignoreType = "") => {
   if (IDs.length == 0) throw new Error(`IDが入力されていません。`)
   if (text == "") throw new Error(`textが入力されていません。`)
   let tempText = text
@@ -49,7 +49,9 @@ module.exports = async (IDs = [], text = "", options = []) => {
   for (ID of IDs) {
     if (!Object.keys(converter).includes(ID))
       throw new Error(`"${ID}"は存在しません。`)
-    tempText = await converter[ID].convert(tempText, (options[i] || undefined))
+    if (converter[ID].type != ignoreType)
+      tempText = await converter[ID].convert(tempText, (options[i] || undefined))
+    if (converter[ID].type == "image") break
     i++
   }
   return tempText

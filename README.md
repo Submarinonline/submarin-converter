@@ -33,7 +33,7 @@ console.log(result2) //こゐ日本语ゎ怪ﾚㄑなっだ后〆ｿﾍぅ风に
 
 ## Format
 ```
-convert(["cmd1","cmd2","cmd3"…],"String",([cmd1option,cmd2option,cmd3option…]))
+convert(IDs: ["cmd1","cmd2","cmd3"…], text: String, options: [cmd1option,cmd2option,cmd3option…], ignoreType: String)
 ```
 
 ## Addon
