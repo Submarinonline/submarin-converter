@@ -1,5 +1,5 @@
 const host = {
-  origin: "https://gsapi.cyberrex.ml/image"
+  origin: "https://gsapi.cyberrex.jp/image"
 }
 
 module.exports = async (top = "", option = {}) => {
